@@ -467,7 +467,10 @@ child of `google-map`.
         },
 
         _clearListener: function(name) {
-          if (this._listeners != undefined && this._listeners[name]) {
+          if (this._listeners == undefined) {
+            return;
+          }
+          if (this._listeners[name]) {
             google.maps.event.removeListener(this._listeners[name]);
             this._listeners[name] = null;
           }
